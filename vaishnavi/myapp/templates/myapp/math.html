@@ -1,32 +1,77 @@
-
-<!DOCTYPE html>
 <html>
-<head>
-    <title>BMI Calculator</title>
-</head>
-<body bgcolor="lightblue">
-    <center>
-        <h2>BMI Calculator</h2>
-        <form method="POST">
-            {% csrf_token %}
-            <label>Height (m):</label><br>
-            <input type="text" name="height"><br><br>
-            <label>Weight (kg):</label><br>
-            <input type="text" name="weight"><br><br>
-            <button type="submit">Calculate</button>
-        </form>
+    <head>
+        <title>BMI Calculator</title>
+        <style>
+        body{
+          background-color: rgba(12, 243, 243, 0.745);
+          border-top: 10;
+        }
+        .m{
+          background-color: rgb(91, 99, 245);
+          border-style: inset;
+          margin-top: 150px;
+          margin-left: 200px;
+          margin-right: 200px;
+          
+        }
+        *{
+          color: rgb(130, 108, 237);
+        }
+            .main{
+                font-size: 250%;
+                text-align: center;
+                text-decoration:underline;
 
+                background-color: rgba(27, 165, 229, 0.779);
+                 margin-left: 50px;
+                  margin-right: 50px;
+                  padding: 50px;
+                  
+                  
+            }
+            .a{
+                font-size: 150%;
+                text-align: center;
+                background-color: rgba(103, 217, 237, 0.779);
+                 margin-left: 50px;
+                  margin-right: 50px;
+                
+                 
+            }
+            form{
+              text-align: center;
+              background-color: rgba(218, 215, 228, 0.779);
+               margin-left: 50px;
+             margin-right: 50px;
+             padding: 50px;
+            }
+           
+        </style>
+    </head>
+    <body>
+
+       <div class="m">
+        <div class="main" style="color: rgb(24, 20, 229);">BMI Calculator</div>
+        <div class="a">
+      <h2>VAISHNAVI T-25017435</h2></div>
+        <form method="post">
+          {% csrf_token %}
+           
+           
+            <label>Weight(kg)=</label>
+            <input type="text" name="weight" value="{{w}}"><br><br>
+             <label>Height(cm)=</label>
+            <input type="text" name="height" value="{{h}}"><br><br>
+            <button type="submit">Calculate</button><br><br>
+            <label>BMI=</label>
+            <input type="text" name="bmi" value="{{bmi}}">
+        </div>
+         </form>
         
-
-        {% if BMI %}
-            <h3>Your BMI is: {{ BMI }}</h3>
-        {% endif %}
-    </center>
-</body>
+        
+    </body>
 </html>
 
-
-
-
+    
 
 

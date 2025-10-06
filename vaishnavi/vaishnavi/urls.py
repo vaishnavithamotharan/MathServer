@@ -4,5 +4,6 @@ from myapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.calculate_bmi, name='calculate_bmi'),
+    path('bmi/',views.calculate_bmi,name="bmi"),
+    path('',views.calculate_bmi,name="bmicalculator")
 ]

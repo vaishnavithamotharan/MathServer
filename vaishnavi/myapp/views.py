@@ -1,18 +1,19 @@
-
 from django.shortcuts import render
-
 def calculate_bmi(request):
-    bmi = None   # Default value
-
-    if request.method == "POST":
-        height = float(request.POST.get("height"))
-        weight = float(request.POST.get("weight"))
-        bmi = weight / (height * height)
-
-        # Print to server console for debugging
-        print("Height:", height)
-        print("Weight:", weight)
-        print("BMI calculated:", bmi)
-
-    return render(request, "myapp/math.html", {"BMI": bmi})
-
+    context={}
+    context['bmi']="0"
+    context['w']="0"
+    context['h']="0"
+    if(request.method=='POST'):
+       w= float(request.POST.get('weight','0'))
+       h=float(request.POST.get('height','0'))
+       print('request=',request)
+       
+       print('Weight=',w)
+       print('Height=',h)
+       bmi=w/((h/100)**2)
+       context['bmi']=bmi
+       context['w']=w
+       context['h']=h
+       print('BMI=',bmi)
+    return render(request,'myapp/math.html',context)
